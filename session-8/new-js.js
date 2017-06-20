@@ -142,4 +142,20 @@ function test () {
   console.log('outside if: ', x);
 }
 
+/**
+ * ITERATORS
+ */
 
+const obj = { a: 1, b: 2 };
+
+// Iterate through object keys
+for (let key in obj) {
+  console.log(key);
+}
+
+// Iterate through array values / iterable
+
+const arr = [1, 3, 4, 5];
+for (let value of arr) {
+  console.log(value);
+}
