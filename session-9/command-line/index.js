@@ -8,7 +8,7 @@ program
       default: 'Nobody'
     }
   }, (argv) => {
-    console.log('Hello', argv.name, 'welcome to yargs!');
+    console.log('Hello', argv.name, 'welcome to command line app!');
   })
   .help()
   .argv;

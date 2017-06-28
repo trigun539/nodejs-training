@@ -5,14 +5,27 @@ const bodyParser = require('body-parser');
 const app = express();
 const todos = {};
 
+// HTTP request => server ( middleware ( bodyParser => methodOverride) => your handler)
+
+// Configuring express
 app.use(bodyParser.json());
+app.use(methodOverride());
 
 app.get('/', (req, res, next) => {
-  res.send('Hello world');
+  const urlparam = req.query.name;
+  console.log('urlparam: ', urlparam);
+
+  res.send('Hello world ' + urlparam);
 });
 
 app.get('/api/todos', (req, res, next) => {
   res.send(Object.keys(todos).map(x => todos[x]));
+});
+
+app.get('/api/todos/:id', (req, res, next) => {
+  const id   = parseInt(req.params.id);
+
+  res.send(todos[id]);
 });
 
 app.put('/api/todos/:id', (req, res, next) => {
